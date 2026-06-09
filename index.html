@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <input type="text" id="campo-nome" placeholder="Digite seu nome">
+    <input type="text" id="campo-data" placeholder="Digite sua data de nascimento (ano-mês-dia)">
+    <input type="text" id="campo-natural" placeholder="Digite de onde você é natural">
+    <input type="text" id="campo-endereco" placeholder="Digite seu endereço(completo)">
+    <input type="text" id="campo-fone" placeholder="Digite seu telefone(com ddd)">
+    <input type="text" id="campo-email" placeholder="Digite seu e-mail">
+     <input type="text" id="campo-parentesco" placeholder="Digite seu parentesco">
+    <button id="btn-salvar">Salvar</button>
+
+      <script>
+        
+        document.getElementById('btn-salvar').addEventListener('click', function() {
+            
+            
+           const nomeDigitado = document.getElementById('campo-nome').value;
+           const dataDigitada = document.getElementById('campo-data').value;
+           const naturalDigitado = document.getElementById('campo-natural').value;
+           const enderecoDigitada = document.getElementById('campo-endereco').value;
+           const foneDigitado = document.getElementById('campo-fone').value;
+           const emailDigitado = document.getElementById('campo-email').value;
+           const parentescoDigitada = document.getElementById('campo-parentesco').value;
+
+
+            const novoUsuario = {
+                nome: nomeDigitado,
+                data_nascimento: dataDigitada,
+                natural: naturalDigitado,
+                endereco: enderecoDigitada,
+                telefone: foneDigitado,
+                email: emailDigitado, 
+                parentesco: parentescoDigitada
+            };
+
+            const dadosEmJson = JSON.stringify(novoUsuario);
+
+            console.log("JSON pronto para enviar ao banco:", dadosEmJson);
+            alert("JSON gerado com sucesso! Olhe o console (F12).");
+
+            document.getElementById('campo-nome').value = "";
+          document.getElementById('campo-data').value = "";
+          document.getElementById('campo-natural').value = "";
+          document.getElementById('campo-endereco').value = "";
+          document.getElementById('campo-fone').value = "";
+          document.getElementById('campo-email').value = ""; // Adicionado
+          document.getElementById('campo-parentesco').value = "";
+        });
+    </script>
+
+    
+</body>
+</html>
